@@ -33,3 +33,30 @@ const divide = function(arr) {
   return answer;
 };
 //console.log(divide([16, 4, 1]))
+
+const operate = function(n1, n2, operation) {
+  if (operation == sum) {
+    let sumArray = [];
+    sumArray.push(n1);
+    sumArray.push(n2);
+    return sum(sumArray);
+  } else if (operation == subtract) {
+    let subtractArray = [];
+    subtractArray.push(n1);
+    subtractArray.push(n2);
+    return subtract(subtractArray);
+  } else if (operation == multiply) {
+    let multiplyArray = [];
+    multiplyArray.push(n1);
+    multiplyArray.push(n2);
+    return multiply(multiplyArray);
+  } else if (operation == divide) {
+    let divideArray = [];
+    divideArray.push(n1);
+    divideArray.push(n2);
+    return divide(divideArray);
+  } else {
+    return "OOPS";
+  }
+};
+//console.log(operate(16,2,divide))
