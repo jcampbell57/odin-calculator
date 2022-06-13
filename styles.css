@@ -1,0 +1,23 @@
+.body {
+    display: flex;
+    height: auto;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    gap: 4px;
+    border: 1px solid black;
+}
+
+.display {
+    border: 1px solid black;
+}
+
+button {
+    width: auto;
+}
