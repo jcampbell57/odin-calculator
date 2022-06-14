@@ -57,10 +57,9 @@ operations.forEach((button) =>{
       n1=Number(display.textContent);
       displayValue = 0;
       operation = e.target.id;
-    //assigns operator when n1 is already assigned (forgot why this is helpful)
+    //assigns operator when n1 is already assigned
     } else if (operation == '') {
       operation = e.target.id;
-      console.log('WHY DID THIS FIRE???');
     //assignes n2 and operates
     } else {
       n2=Number(displayValue);
@@ -124,7 +123,7 @@ changeSign.addEventListener('click', () => {
 equalSign.addEventListener('click', () => {
 //in case equal sign is pressed too soon
   if (isNaN(n1) || operation == '') {
-    n1=Number(displayValue);
+    n1=Number(display.textContent);
     displayValue = 0;
   } else {
       n2=Number(displayValue);
