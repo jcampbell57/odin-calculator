@@ -47,8 +47,10 @@ clearAll.addEventListener('click', () => {
 })
 
 percent.addEventListener('click', () => {
-  displayValue = displayValue/100;
+  displayValue = display.textContent/100;
   display.textContent = displayValue;
+  n1 = displayValue;
+  displayValue = 0;
 });
 
 //changeSign.addEventListener('click', () => {});
