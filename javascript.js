@@ -67,8 +67,8 @@ equalSign.addEventListener('click', () => {
   } else {
     n2=Number(displayValue);
     displayValue = 0;
-    n1 = operate(n1, n2, operation);
-    display.textContent = n1;
+    display.textContent = operate(n1, n2, operation);
+    n1 = 'f';
     operation = ''
     }
 });
@@ -77,19 +77,23 @@ equalSign.addEventListener('click', () => {
 //operation selection
 operations.forEach((button) =>{
   button.addEventListener('click', (e) => {    
+    //assigns n1 and operator
     if (isNaN(n1)) {
-      n1=Number(displayValue);
+      n1=Number(display.textContent);
       displayValue = 0;
       operation = e.target.id;
+    //assigns operator when n1 is already assigned (forgot why this is helpful, but it is)
     } else if (operation == '') {
       operation = e.target.id;
+      console.log('WHY DID THIS FIRE???');
+    //assignes n2 and operates
     } else {
       n2=Number(displayValue);
       displayValue = 0;
       n1 = operate(n1, n2, operation);
       display.textContent = n1;
       operation = e.target.id;
-    } 
+    }
   });
 })
 
