@@ -47,7 +47,7 @@ clearAll.addEventListener('click', () => {
 })
 
 percent.addEventListener('click', () => {
-  displayValue = display.textContent/100;
+  displayValue = rounded(display.textContent/100);
   display.textContent = displayValue;
   n1 = displayValue;
   displayValue = 0;
@@ -95,21 +95,21 @@ const subtraction = function(n1, n2) {return n1 - n2};
 const multiplication = function(n1, n2) {return n1 * n2};
 const division = function(n1, n2) {return n1 / n2};
 const exponential = function(n1, n2) {return Math.pow(n1, n2)};
+const rounded = function(input) {return Math.round(input * 1000) / 1000};
 
 const operate = function(n1, n2, operation) {
   console.log(n1, n2, operation);
   if (operation == 'sum') {
-    return summation(n1, n2);
+    return rounded(summation(n1, n2));
   } else if (operation == 'subtract') {
-    return subtraction(n1, n2);
+    return rounded(subtraction(n1, n2));
   } else if (operation == 'multiply') {
-    return multiplication(n1, n2);
+    return rounded(multiplication(n1, n2));
   } else if (operation == 'divide') {
-    return division(n1, n2);
+    return rounded(division(n1, n2));
   } else if (operation == 'exponent') {
-    return exponential(n1, n2);
+    return rounded(exponential(n1, n2));
   } else {
     return "OOPS";
   }
 };
-//console.log(operate(16,2,'divide'))
