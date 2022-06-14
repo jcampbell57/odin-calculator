@@ -13,6 +13,7 @@ let sum = document.querySelector('#sum');
 let changeSign = document.querySelector('#changeSign');
 let equalSign = document.querySelector('#equalSign');
 let displayValue = 0;
+let operation = '';
 let n1;
 let n2;
 
@@ -53,11 +54,16 @@ percent.addEventListener('click', () => {
 //changeSign.addEventListener('click', () => {});
 
 equalSign.addEventListener('click', () => {
-  n2=Number(displayValue);
-  displayValue = 0;
-  n1 = operate(n1, n2, operation);
-  display.textContent = n1;
-  operation = ''
+  if (isNaN(n1) || operation == '') {
+    n1=Number(displayValue);
+    displayValue = 0;
+  } else {
+    n2=Number(displayValue);
+    displayValue = 0;
+    n1 = operate(n1, n2, operation);
+    display.textContent = n1;
+    operation = ''
+    }
 });
 
 
