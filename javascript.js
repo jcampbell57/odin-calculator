@@ -11,6 +11,7 @@ let multiply = document.querySelector('#multiply');
 let subtract = document.querySelector('subtract');
 let sum = document.querySelector('#sum');
 let changeSign = document.querySelector('#changeSign');
+let decimal = document.querySelector('#decimal');
 let equalSign = document.querySelector('#equalSign');
 let displayValue = 0;
 let operation = '';
@@ -74,8 +75,15 @@ operations.forEach((button) =>{
 
 //displayValue modifiers
 numbers.forEach((button) =>{
-  button.addEventListener('click', () => {
-    if (displayValue == 0) {
+  button.addEventListener('click', (e) => {
+    //allows only one decimal
+    if (e.target.id == 'decimal') {
+      console.log('cool');
+      if (displayValue.toString().includes('.')) {
+        console.log('cooler');
+        return
+      };      
+    } else if (displayValue === 0) { //else here keeps the 0 when there is a decimal
       displayValue = "";
     }; 
     displayValue += button.textContent;
@@ -98,6 +106,7 @@ backspace.addEventListener('click', () => {
 
 clearAll.addEventListener('click', () => {
   n1 = 'f';
+  operation = '';
   displayValue = 0;
   display.textContent = displayValue;
 })
