@@ -6,7 +6,8 @@
 }
 
 .displayRow {
-    border: 1px solid black;
+    display: flex;
+    gap: 4px;
 }
 
 .calculator {
@@ -20,9 +21,11 @@
 }
 
 .display {
+    overflow-wrap: break-word;
     background-color: white;
     border: 1px solid black;
-    max-width: 120px;
+    width: 126px;
+    max-width: 126px;
 }
 
 button {

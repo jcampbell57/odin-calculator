@@ -78,9 +78,7 @@ numbers.forEach((button) =>{
   button.addEventListener('click', (e) => {
     //allows only one decimal
     if (e.target.id == 'decimal') {
-      console.log('cool');
       if (displayValue.toString().includes('.')) {
-        console.log('cooler');
         return
       };      
     } else if (displayValue === 0) { //else here keeps the 0 when there is a decimal
