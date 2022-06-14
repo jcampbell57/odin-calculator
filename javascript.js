@@ -42,7 +42,7 @@ backspace.addEventListener('click', () => {
 })
 
 clearAll.addEventListener('click', () => {
-  n1 = 0;
+  n1 = '';
   displayValue = 0;
   display.textContent = displayValue;
 })
@@ -79,72 +79,24 @@ operations.forEach((button) =>{
 
 
 //operations
-const summation = function(arr) {
-	let sum = 0
-  for (i=0; i < arr.length; i++) {
-    sum += arr[i];
-  };
-  return sum;
-};
-//console.log(summation([2, 2, 4]))
-
-const subtraction = function(arr) {
-	let answer = arr[0];
-  for (i=1; i < arr.length; i++) {
-    answer -= arr[i];
-  };
-  return answer;
-};
-//console.log(subtraction([2, 2, 4]))
-
-const multiplication = function(arr) {
-	let answer = 1;
-  for (i=0; i < arr.length; i++) {
-    answer *= arr[i];
-  };
-  return answer;
-};
-//console.log(multiplication([2, 2, 4]))
-
-const division = function(arr) {
-	let answer = arr[0];
-  for (i=1; i < arr.length; i++) {
-    answer /= arr[i];
-  };
-  return answer;
-};
-//console.log(division([16, 4, 1]))
-
-const exponential = function(n1, n2) {
-  return Math.pow(n1, n2);
-};
-//console.log(exponent(4,2));
+const summation = function(n1, n2) {return n1 + n2};
+const subtraction = function(n1, n2) {return n1 - n2};
+const multiplication = function(n1, n2) {return n1 * n2};
+const division = function(n1, n2) {return n1 / n2};
+const exponential = function(n1, n2) {return Math.pow(n1, n2)};
 
 const operate = function(n1, n2, operation) {
   if (operation == 'sum') {
-    let sumArray = [];
-    sumArray.push(n1);
-    sumArray.push(n2);
-    return summation(sumArray)
+    return summation(n1, n2);
   } else if (operation == 'subtract') {
-    let subtractArray = [];
-    subtractArray.push(n1);
-    subtractArray.push(n2);
-    return subtraction(subtractArray);
+    return subtraction(n1, n2);
   } else if (operation == 'multiply') {
-    let multiplyArray = [];
-    multiplyArray.push(n1);
-    multiplyArray.push(n2);
-    return multiplication(multiplyArray);
+    return multiplication(n1, n2);
   } else if (operation == 'divide') {
-    let divideArray = [];
-    divideArray.push(n1);
-    divideArray.push(n2);
-    return division(divideArray);
+    return division(n1, n2);
   } else if (operation == 'exponent') {
     return exponential(n1, n2);
   } else {
     return "OOPS";
   }
 };
-//console.log(operate(16,2,divide))
