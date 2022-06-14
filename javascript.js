@@ -49,13 +49,16 @@ clearAll.addEventListener('click', () => {
 })
 
 percent.addEventListener('click', () => {
+  n1 = 'f';
   displayValue = rounded(display.textContent/100);
   display.textContent = displayValue;
-  n1 = displayValue;
-  displayValue = 0;
 });
 
-//changeSign.addEventListener('click', () => {});
+changeSign.addEventListener('click', () => {
+    n1 = 'f'
+    display.textContent = display.textContent / -1
+    displayValue = display.textContent;
+});
 
 equalSign.addEventListener('click', () => {
   if (isNaN(n1) || operation == '') {
