@@ -18,6 +18,60 @@ let n1;
 let n2;
 
 
+//operations
+const summation = function(n1, n2) {return n1 + n2};
+const subtraction = function(n1, n2) {return n1 - n2};
+const multiplication = function(n1, n2) {return n1 * n2};
+const division = function(n1, n2) {return n1 / n2};
+const exponential = function(n1, n2) {return Math.pow(n1, n2)};
+const rounded = function(input) {return Math.round(input * 1000) / 1000};
+
+const operate = function(n1, n2, operation) {
+  //for debugging:
+  //console.log(n1, n2, operation);
+  if (operation == 'sum') {
+    return rounded(summation(n1, n2));
+  } else if (operation == 'subtract') {
+    return rounded(subtraction(n1, n2));
+  } else if (operation == 'multiply') {
+    return rounded(multiplication(n1, n2));
+  } else if (operation == 'divide') {
+    if (n2 == 0) {
+      return 'Don\'t divide by 0!'
+    } else {
+      return rounded(division(n1, n2));
+    }
+  } else if (operation == 'exponent') {
+    return rounded(exponential(n1, n2));
+  } else {
+    return "OOPS";
+  }
+};
+
+//operation selection
+operations.forEach((button) =>{
+  button.addEventListener('click', (e) => {    
+    //assigns n1 and operator
+    if (isNaN(n1)) {
+      n1=Number(display.textContent);
+      displayValue = 0;
+      operation = e.target.id;
+    //assigns operator when n1 is already assigned (forgot why this is helpful)
+    } else if (operation == '') {
+      operation = e.target.id;
+      console.log('WHY DID THIS FIRE???');
+    //assignes n2 and operates
+    } else {
+      n2=Number(displayValue);
+      displayValue = 0;
+      n1 = operate(n1, n2, operation);
+      display.textContent = n1;
+      operation = e.target.id;
+    }
+  });
+})
+
+
 //displayValue modifiers
 numbers.forEach((button) =>{
   button.addEventListener('click', () => {
@@ -61,64 +115,15 @@ changeSign.addEventListener('click', () => {
 });
 
 equalSign.addEventListener('click', () => {
+//in case equal sign is pressed too soon
   if (isNaN(n1) || operation == '') {
     n1=Number(displayValue);
     displayValue = 0;
   } else {
-    n2=Number(displayValue);
-    displayValue = 0;
-    display.textContent = operate(n1, n2, operation);
-    n1 = 'f';
-    operation = ''
-    }
-});
-
-
-//operation selection
-operations.forEach((button) =>{
-  button.addEventListener('click', (e) => {    
-    //assigns n1 and operator
-    if (isNaN(n1)) {
-      n1=Number(display.textContent);
-      displayValue = 0;
-      operation = e.target.id;
-    //assigns operator when n1 is already assigned (forgot why this is helpful, but it is)
-    } else if (operation == '') {
-      operation = e.target.id;
-      console.log('WHY DID THIS FIRE???');
-    //assignes n2 and operates
-    } else {
       n2=Number(displayValue);
       displayValue = 0;
-      n1 = operate(n1, n2, operation);
-      display.textContent = n1;
-      operation = e.target.id;
+      display.textContent = operate(n1, n2, operation);
+      n1 = 'f';
+      operation = ''
     }
-  });
-})
-
-
-//operations
-const summation = function(n1, n2) {return n1 + n2};
-const subtraction = function(n1, n2) {return n1 - n2};
-const multiplication = function(n1, n2) {return n1 * n2};
-const division = function(n1, n2) {return n1 / n2};
-const exponential = function(n1, n2) {return Math.pow(n1, n2)};
-const rounded = function(input) {return Math.round(input * 1000) / 1000};
-
-const operate = function(n1, n2, operation) {
-  console.log(n1, n2, operation);
-  if (operation == 'sum') {
-    return rounded(summation(n1, n2));
-  } else if (operation == 'subtract') {
-    return rounded(subtraction(n1, n2));
-  } else if (operation == 'multiply') {
-    return rounded(multiplication(n1, n2));
-  } else if (operation == 'divide') {
-    return rounded(division(n1, n2));
-  } else if (operation == 'exponent') {
-    return rounded(exponential(n1, n2));
-  } else {
-    return "OOPS";
-  }
-};
+});
