@@ -30,13 +30,15 @@ numbers.forEach((button) =>{
 })
 
 backspace.addEventListener('click', () => {
-  if (displayValue.toString().length == 1) {
+  if (display.textContent.toString().length == 1) {
     displayValue = 0;
     display.textContent = displayValue;        
   } else {
-    let stringValue = displayValue.toString().split('').slice(0, -1).join('');
+    let stringValue = display.textContent.toString().split('').slice(0, -1).join('');
     displayValue = Number(stringValue);
     display.textContent = displayValue;        
+    n1 = displayValue;
+    displayValue = 0;
   }
 })
 
