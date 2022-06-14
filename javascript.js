@@ -1,3 +1,29 @@
+//default document elements and values
+let display = document.querySelector('.display')
+let numbers = document.querySelectorAll('.number');
+let operations = document.querySelectorAll('.operation') 
+let clearAll = document.querySelector('#clearAll')
+let displayValue = 0;
+
+
+//display updater
+numbers.forEach((button) =>{
+  button.addEventListener('click', () => {
+    if (displayValue == 0) {
+      displayValue = "";
+    }; 
+    displayValue += button.textContent;
+    display.textContent = displayValue;
+  });
+})
+
+clearAll.addEventListener('click', () => {
+  displayValue = 0;
+  display.textContent = displayValue;
+})
+
+
+//operations
 const sum = function(arr) {
 	let sum = 0
   for (i=0; i < arr.length; i++) {
