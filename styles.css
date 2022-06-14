@@ -1,9 +1,12 @@
 .body {
     display: flex;
     height: auto;
-    border: 1px solid black;
     justify-content: center;
     align-items: center;
+}
+
+.displayRow {
+    border: 1px solid black;
 }
 
 .calculator {
@@ -19,8 +22,21 @@
 .display {
     background-color: white;
     border: 1px solid black;
+    max-width: 120px;
 }
 
 button {
     width: 40px;
+}
+
+.number {
+    background-color: lightgreen;
+}
+
+.operation {
+    background-color: lightseagreen;
+}
+
+.modification {
+    background-color: lightseagreen;
 }

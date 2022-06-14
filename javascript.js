@@ -1,9 +1,20 @@
 //default document elements and values
-let display = document.querySelector('.display')
+let display = document.querySelector('.display');
 let numbers = document.querySelectorAll('.number');
-let operations = document.querySelectorAll('.operation') 
-let clearAll = document.querySelector('#clearAll')
+let operations = document.querySelectorAll('.operation'); 
+let backspace = document.querySelector('#backspace');
+let clearAll = document.querySelector('#clearAll');
+let exponent = document.querySelector('#exponent');
+let percent = document.querySelector('#percent');
+let divide = document.querySelector('#divide');
+let multiply = document.querySelector('#multiply');
+let subtract = document.querySelector('subtract');
+let sum = document.querySelector('#sum');
+let changeSign = document.querySelector('#changeSign');
+let equalSign = document.querySelector('#equalSign');
 let displayValue = 0;
+let n1;
+let n2;
 
 
 //display updater
@@ -17,70 +28,121 @@ numbers.forEach((button) =>{
   });
 })
 
+
+//modifications
+backspace.addEventListener('click', () => {
+  if (displayValue.toString().length == 1) {
+    displayValue = 0;
+    display.textContent = displayValue;        
+  } else {
+    let stringValue = displayValue.toString().split('').slice(0, -1).join('');
+    displayValue = Number(stringValue);
+    display.textContent = displayValue;        
+  }
+})
+
 clearAll.addEventListener('click', () => {
+  n1 = 0;
   displayValue = 0;
   display.textContent = displayValue;
 })
 
+percent.addEventListener('click', () => {
+  displayValue = displayValue/100;
+  display.textContent = displayValue;
+});
+
+//changeSign.addEventListener('click', () => {});
+
+equalSign.addEventListener('click', () => {
+  n2=Number(displayValue);
+  n1 = operate(n1, n2, operation);
+  display.textContent = n1;
+});
+
+
+//operation selection
+operations.forEach((button) =>{
+  button.addEventListener('click', (e) => {    
+    if (isNaN(n1)) {
+      n1=Number(displayValue);
+      displayValue = 0;
+      operation = e.target.id;
+      } else {
+        n2=Number(displayValue);
+        displayValue = 0;
+        n1 = operate(n1, n2, operation);
+        display.textContent = n1;
+      } 
+  });
+})
+
 
 //operations
-const sum = function(arr) {
+const summation = function(arr) {
 	let sum = 0
   for (i=0; i < arr.length; i++) {
     sum += arr[i];
   };
   return sum;
 };
-//console.log(sum([2, 2, 4]))
+//console.log(summation([2, 2, 4]))
 
-const subtract = function(arr) {
+const subtraction = function(arr) {
 	let answer = arr[0];
   for (i=1; i < arr.length; i++) {
     answer -= arr[i];
   };
   return answer;
 };
-//console.log(subtract([2, 2, 4]))
+//console.log(subtraction([2, 2, 4]))
 
-const multiply = function(arr) {
+const multiplication = function(arr) {
 	let answer = 1;
   for (i=0; i < arr.length; i++) {
     answer *= arr[i];
   };
   return answer;
 };
-//console.log(multiply([2, 2, 4]))
+//console.log(multiplication([2, 2, 4]))
 
-const divide = function(arr) {
+const division = function(arr) {
 	let answer = arr[0];
   for (i=1; i < arr.length; i++) {
     answer /= arr[i];
   };
   return answer;
 };
-//console.log(divide([16, 4, 1]))
+//console.log(division([16, 4, 1]))
+
+const exponential = function(n1, n2) {
+  return Math.pow(n1, n2);
+};
+//console.log(exponent(4,2));
 
 const operate = function(n1, n2, operation) {
-  if (operation == sum) {
+  if (operation == 'sum') {
     let sumArray = [];
     sumArray.push(n1);
     sumArray.push(n2);
-    return sum(sumArray);
-  } else if (operation == subtract) {
+    return summation(sumArray)
+  } else if (operation == 'subtract') {
     let subtractArray = [];
     subtractArray.push(n1);
     subtractArray.push(n2);
-    return subtract(subtractArray);
-  } else if (operation == multiply) {
+    return subtraction(subtractArray);
+  } else if (operation == 'multiply') {
     let multiplyArray = [];
     multiplyArray.push(n1);
     multiplyArray.push(n2);
-    return multiply(multiplyArray);
-  } else if (operation == divide) {
+    return multiplication(multiplyArray);
+  } else if (operation == 'divide') {
     let divideArray = [];
     divideArray.push(n1);
     divideArray.push(n2);
-    return divide(divideArray);
+    return division(divideArray);
+  } else if (operation == 'exponent') {
+    return exponential(n1, n2);
   } else {
     return "OOPS";
   }

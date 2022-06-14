@@ -12,36 +12,39 @@
     <div class="header"></div>
     <div class="body">
         <div class="calculator">
-            <div class="display">8008135</div>
+            <div class="displayRow">
+                <div class="display">0</div>
+                <button class = "modification" id="backspace"><</button>
+            </div>
             <div class="row">
-                <button class = "operation" id="clearAll">AC</button>
-                <button class = "operation">x^y</button>
-                <button class = "operation">%</button>
-                <button class = "operation">÷</button>
+                <button class = "modification" id="clearAll">AC</button>
+                <button class = "operation" id="exponent">x^y</button>
+                <button class = "modification" id="percent">%</button>
+                <button class = "operation" id="divide">÷</button>
             </div>
             <div class="row">
                 <button class = "number">7</button>
                 <button class = "number">8</button>
                 <button class = "number">9</button>
-                <button class = "operation">x</button>
+                <button class = "operation" id="multiply">x</button>
             </div>
             <div class="row">
                 <button class = "number">4</button>
                 <button class = "number">5</button>
                 <button class = "number">6</button>
-                <button class = "operation">-</button>
+                <button class = "operation" id="subtract">-</button>
             </div>
             <div class="row">
                 <button class = "number">1</button>
                 <button class = "number">2</button>
                 <button class = "number">3</button>
-                <button class = "operation">+</button>
+                <button class = "operation" id="sum">+</button>
             </div>
             <div class="row">
-                <button class = "operation">+/-</button>
+                <button class = "modification" id="changeSign">+/-</button>
                 <button class = "number">0</button>
                 <button class = "number">.</button>
-                <button class = "operation">=</button>
+                <button class = "modification" id="equalSign">=</button>
             </div>
         </div>
     </div>
