@@ -17,7 +17,7 @@ let n1;
 let n2;
 
 
-//display updater
+//displayValue modifiers
 numbers.forEach((button) =>{
   button.addEventListener('click', () => {
     if (displayValue == 0) {
@@ -28,8 +28,6 @@ numbers.forEach((button) =>{
   });
 })
 
-
-//modifications
 backspace.addEventListener('click', () => {
   if (displayValue.toString().length == 1) {
     displayValue = 0;
@@ -42,7 +40,7 @@ backspace.addEventListener('click', () => {
 })
 
 clearAll.addEventListener('click', () => {
-  n1 = '';
+  n1 = 'f';
   displayValue = 0;
   display.textContent = displayValue;
 })
@@ -56,8 +54,10 @@ percent.addEventListener('click', () => {
 
 equalSign.addEventListener('click', () => {
   n2=Number(displayValue);
+  displayValue = 0;
   n1 = operate(n1, n2, operation);
   display.textContent = n1;
+  operation = ''
 });
 
 
@@ -68,12 +68,15 @@ operations.forEach((button) =>{
       n1=Number(displayValue);
       displayValue = 0;
       operation = e.target.id;
-      } else {
-        n2=Number(displayValue);
-        displayValue = 0;
-        n1 = operate(n1, n2, operation);
-        display.textContent = n1;
-      } 
+    } else if (operation == '') {
+      operation = e.target.id;
+    } else {
+      n2=Number(displayValue);
+      displayValue = 0;
+      n1 = operate(n1, n2, operation);
+      display.textContent = n1;
+      operation = e.target.id;
+    } 
   });
 })
 
@@ -86,6 +89,7 @@ const division = function(n1, n2) {return n1 / n2};
 const exponential = function(n1, n2) {return Math.pow(n1, n2)};
 
 const operate = function(n1, n2, operation) {
+  console.log(n1, n2, operation);
   if (operation == 'sum') {
     return summation(n1, n2);
   } else if (operation == 'subtract') {
@@ -100,3 +104,4 @@ const operate = function(n1, n2, operation) {
     return "OOPS";
   }
 };
+//console.log(operate(16,2,'divide'))
