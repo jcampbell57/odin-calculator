@@ -97,7 +97,6 @@ backspace.addEventListener('click', () => {
     displayValue = Number(stringValue);
     display.textContent = displayValue;        
     n1 = displayValue;
-    displayValue = 0;
   }
 })
 
