@@ -53,12 +53,9 @@ const operate = function(n1, n2, operation) {
 operations.forEach((button) =>{
   button.addEventListener('click', (e) => {    
     //assigns n1 and operator
-    if (isNaN(n1)) {
+    if (isNaN(n1) || operation == '') {
       n1=Number(display.textContent);
       displayValue = 0;
-      operation = e.target.id;
-    //assigns operator when n1 is already assigned
-    } else if (operation == '') {
       operation = e.target.id;
     //assignes n2 and operates
     } else {
