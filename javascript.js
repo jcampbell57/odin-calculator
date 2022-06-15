@@ -8,7 +8,7 @@ let exponent = document.querySelector('#exponent');
 let percent = document.querySelector('#percent');
 let divide = document.querySelector('#divide');
 let multiply = document.querySelector('#multiply');
-let subtract = document.querySelector('subtract');
+let subtract = document.querySelector('#subtract');
 let sum = document.querySelector('#sum');
 let changeSign = document.querySelector('#changeSign');
 let decimal = document.querySelector('#decimal');
@@ -133,3 +133,33 @@ equalSign.addEventListener('click', () => {
       operation = ''
     }
 });
+
+
+//keyboard support
+document.addEventListener("keydown", (e) => {
+  //for debugging:
+  //console.log (e.key);
+  if (e.key ==  '+') {
+    sum.click();
+  } else if (e.key ==  '-') {
+    subtract.click();
+  } else if (e.key ==  '*') {
+    multiply.click();
+  } else if (e.key ==  '/') {
+    divide.click();
+  } else if (e.key ==  '^') {
+    exponent.click();
+  } else if (e.key >=0 && e.key <=9) {
+    document.getElementById(e.key).click();
+  } else if (e.key ==  'Backspace') {
+    backspace.click();
+  } else if (e.key ==  'Enter' || e.key ==  '=') {
+    equalSign.click();
+  } else if (e.key ==  '.') {
+    decimal.click();
+  } else if (e.key ==  '%') {
+    percent.click();
+  } else {
+    return;
+  }
+})
