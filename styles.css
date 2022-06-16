@@ -4,7 +4,7 @@ html {
 
 .body {
     display: flex;
-    height: 100vh;
+    height: 60vh;
     justify-content: center;
     align-items: center;
 }
