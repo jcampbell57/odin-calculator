@@ -1,3 +1,7 @@
+html {
+    background-color: lightslategray;
+}
+
 .body {
     display: flex;
     height: 100vh;
