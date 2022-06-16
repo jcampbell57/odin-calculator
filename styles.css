@@ -33,7 +33,12 @@ html {
 }
 
 button {
+    height: 25px;
     width: 40px;
+}
+
+sup {
+    line-height: 0;
 }
 
 .number {
