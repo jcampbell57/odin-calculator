@@ -12,3 +12,7 @@ This project could be improved with:
     - history of past operations stored on the side, perhaps in a collapsable container
     - Live preview on n1, operation, n2, and calculated value within input window. 
         - on the bottom right, greyed out, with regular display top left, black
+
+## Screenshot
+
+![Connect Four](assets/calculator-600w.png)
