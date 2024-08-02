@@ -2,7 +2,7 @@
 
 ## Project info
 
-This is a fully functional calculator with basic arithmetic operations that can be controlled with mouse or keyboard. This is the capstone project of [The Odin Project's Foundations course](https://www.theodinproject.com/paths/foundations/courses/foundations).
+A fully functional calculator with basic arithmetic operations that can be controlled with mouse or keyboard. This is the capstone project of [The Odin Project's Foundations course](https://www.theodinproject.com/paths/foundations/courses/foundations).
 
 Project description can be found [here](https://www.theodinproject.com/lessons/foundations-calculator).
 
